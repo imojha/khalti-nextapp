@@ -13,7 +13,7 @@ const Card = ({ product, handleBuy }: Props) => {
         <p>Price: {parseInt(product.price)}</p>
         <button
           style={{ backgroundColor: "#592C8C" }}
-          className="px-4 py-2"
+          className="p-4"
           onClick={() => handleBuy(product)}
         >
           BUY NOW
