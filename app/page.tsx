@@ -27,10 +27,7 @@ export default function Home() {
       },
     };
 
-    const res: any = await axios.post(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}api/khalti-payment`,
-      payload
-    );
+    const res: any = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}`, payload);
 
     if (res && res?.data?.data?.payment_url) {
       window.location.href = `${res?.data?.data?.payment_url}`;
