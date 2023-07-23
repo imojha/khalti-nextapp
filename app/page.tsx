@@ -14,7 +14,7 @@ export default function Home() {
   }, []);
 
   const handleClick = async (product: any) => {
-    console.log("Button is clicked....", process.env.RETURN_URL);
+    
     const payload = {
       return_url: process.env.NEXT_PUBLIC_RETURN_URL,
       website_url: process.env.NEXT_PUBLIC_WEBSITE_URL,
@@ -28,7 +28,7 @@ export default function Home() {
       },
     };
 
-    console.log(payload);
+   
 
     const res: any = await axios.post(
       "https://a.khalti.com/api/v2/epayment/initiate/",
