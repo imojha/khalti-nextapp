@@ -28,8 +28,6 @@ export default function Home() {
       },
     };
 
-    console.log(payload);
-
     const res: any = await axios.post(
       "https://a.khalti.com/api/v2/epayment/initiate/",
       payload,
