@@ -14,7 +14,6 @@ export default function Home() {
   }, []);
 
   const handleClick = async (product: any) => {
-    console.log("Button is clicked....", process.env.RETURN_URL);
     const payload = {
       return_url: process.env.NEXT_PUBLIC_RETURN_URL,
       website_url: process.env.NEXT_PUBLIC_WEBSITE_URL,
@@ -29,17 +28,12 @@ export default function Home() {
     };
 
     const res: any = await axios.post(
-      "https://a.khalti.com/api/v2/epayment/initiate/",
-      payload,
-      {
-        headers: {
-          Authorization: `Key ${process.env.NEXT_PUBLIC_KHALTI_SECRET_KEY}`,
-        },
-      }
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}api/khalti-payment`,
+      payload
     );
 
-    if (res && res?.data?.payment_url) {
-      window.location.href = `${res?.data?.payment_url}`;
+    if (res && res?.data?.data?.payment_url) {
+      window.location.href = `${res?.data?.data?.payment_url}`;
       // window.open(`${res?.data?.payment_url}`, "_blank");
     }
     console.log(res);
